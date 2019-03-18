@@ -11,9 +11,13 @@ namespace Seedwork.CQRS.UnitTests
         public void Given_comand_should_instatiate_with_created_at()
         {
             var command = new VoidCommandStub();
+            var resultCommand = new ResultCommandStub(null);
 
             command.Should().NotBeNull();
             command.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+            
+            resultCommand.Should().NotBeNull();
+            resultCommand.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
         }
     }
 }
