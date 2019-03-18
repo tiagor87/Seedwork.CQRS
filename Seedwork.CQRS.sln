@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C8B4F8BE-563
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seedwork.CQRS.Core", "src\Core\Seedwork.CQRS.Core.csproj", "{4D397BE2-9990-4935-9378-024EDC6FF0DF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{542FF022-5191-4E29-A9AB-C9C831B6F56A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{542FF022-5191-4E29-A9AB-C9C831B6F56A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seedwork.CQRS.UnitTests", "test\UnitTests\Seedwork.CQRS.UnitTests.csproj", "{0C10BB79-717A-4C93-82D1-75569DF94347}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seedwork.CQRS.UnitTests", "tests\UnitTests\Seedwork.CQRS.UnitTests.csproj", "{0C10BB79-717A-4C93-82D1-75569DF94347}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
