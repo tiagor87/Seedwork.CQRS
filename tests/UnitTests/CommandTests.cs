@@ -15,9 +15,10 @@ namespace Seedwork.CQRS.UnitTests
 
             command.Should().NotBeNull();
             command.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
-            
+
             resultCommand.Should().NotBeNull();
             resultCommand.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+            resultCommand.ResponseType.Should().NotBeNull();
         }
     }
 }

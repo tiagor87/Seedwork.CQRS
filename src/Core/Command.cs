@@ -6,7 +6,7 @@ namespace Seedwork.CQRS.Core
 {
     public abstract class Command : IRequest<Result>
     {
-        public Command()
+        protected Command()
         {
             CreatedAt = DateTime.UtcNow;
         }
@@ -14,13 +14,15 @@ namespace Seedwork.CQRS.Core
         public DateTime? CreatedAt { get; }
     }
 
-    public abstract class Command<T> : IRequest<Result>
+    public abstract class Command<TResponse> : IRequest<Result>
     {
-        public Command()
+        protected Command()
         {
             CreatedAt = DateTime.UtcNow;
+            ResponseType = typeof(TResponse);
         }
 
         public DateTime? CreatedAt { get; }
+        public Type ResponseType { get; }
     }
 }
