@@ -12,8 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="MediatR" Version="6.0.0"/>
-        <PackageReference Include="ResultCore" Version="0.0.30"/>
-        <PackageReference Include="Seedwork.DomainDriven.Core" Version="0.0.8"/>
+        <PackageReference Include="ResultCore" Version="0.0.32"/>
     </ItemGroup>
 
 </Project>

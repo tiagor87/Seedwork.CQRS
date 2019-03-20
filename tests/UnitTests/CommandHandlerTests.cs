@@ -18,17 +18,17 @@ namespace Seedwork.CQRS.UnitTests
         private readonly IMediator _mediator;
 
         [Theory(DisplayName = "GIVEN command, WHEN successful, SHOULD return value")]
-        [InlineData("Value")]
+        [InlineData(0)]
         [InlineData(1)]
-        [InlineData('V')]
-        public async Task Given_command_when_successful_should_return_value(object value)
+        [InlineData(2)]
+        public async Task Given_command_when_successful_should_return_value(long value)
         {
             var command = new ResultCommandStub(value);
 
             var result = await _mediator.Send(command);
 
             result.Successful.Should().BeTrue();
-            result.As<object>().Should().Be(value);
+            result.Value.Should().Be(value);
         }
 
         [Fact(DisplayName = @"GIVEN command, WHEN throw domain exception, SHOULD return failure result")]

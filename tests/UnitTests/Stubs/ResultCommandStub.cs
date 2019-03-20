@@ -4,18 +4,18 @@ using Seedwork.CQRS.Core;
 
 namespace Seedwork.CQRS.UnitTests.Stubs
 {
-    public class ResultCommandStub : Command<object>
+    public class ResultCommandStub : Command<long>
     {
-        public ResultCommandStub(object value)
+        public ResultCommandStub(long value)
         {
             Value = value;
         }
 
-        public object Value { get; }
+        public long Value { get; }
 
-        public class ResultCommandStubHandler : CommandHandler<ResultCommandStub, object>
+        public class ResultCommandStubHandler : CommandHandler<ResultCommandStub, long>
         {
-            protected override Task<object> HandleAsync(ResultCommandStub request, CancellationToken cancellationToken)
+            protected override Task<long> HandleAsync(ResultCommandStub request, CancellationToken cancellationToken)
             {
                 return Task.FromResult(request.Value);
             }

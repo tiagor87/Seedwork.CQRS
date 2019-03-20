@@ -1,7 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Seedwork.CQRS.Core;
-using Seedwork.DomainDriven.Core;
 
 namespace Seedwork.CQRS.UnitTests.Stubs
 {
@@ -12,7 +11,7 @@ namespace Seedwork.CQRS.UnitTests.Stubs
             protected override Task<object> HandleAsync(ResultDomainExceptionCommandStub request,
                 CancellationToken cancellationToken)
             {
-                throw new DomainException("Exception message");
+                throw new StubException();
             }
         }
     }

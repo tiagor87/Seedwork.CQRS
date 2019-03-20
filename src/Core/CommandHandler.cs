@@ -2,7 +2,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using ResultCore;
-using Seedwork.DomainDriven.Core;
 
 namespace Seedwork.CQRS.Core
 {
@@ -24,18 +23,19 @@ namespace Seedwork.CQRS.Core
         protected abstract Task HandleAsync(T request, CancellationToken cancellationToken);
     }
 
-    public abstract class CommandHandler<T, TResponse> : IRequestHandler<T, Result> where T : Command<TResponse>
+    public abstract class CommandHandler<T, TResponse> : IRequestHandler<T, Result<TResponse>>
+        where T : Command<TResponse>
     {
-        public async Task<Result> Handle(T request, CancellationToken cancellationToken)
+        public async Task<Result<TResponse>> Handle(T request, CancellationToken cancellationToken)
         {
             try
             {
                 var response = await HandleAsync(request, cancellationToken);
-                return Result.Success(response);
+                return Result<TResponse>.Success(response);
             }
             catch (DomainException ex)
             {
-                return Result.Fail(ex.Message);
+                return Result<TResponse>.Fail(ex.Message);
             }
         }
 
