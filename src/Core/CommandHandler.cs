@@ -11,8 +11,7 @@ namespace Seedwork.CQRS.Core
         {
             try
             {
-                await HandleAsync(request, cancellationToken);
-                return Result.Success();
+                return await HandleAsync(request, cancellationToken);
             }
             catch (DomainException ex)
             {
@@ -20,7 +19,7 @@ namespace Seedwork.CQRS.Core
             }
         }
 
-        protected abstract Task HandleAsync(T request, CancellationToken cancellationToken);
+        protected abstract Task<Result> HandleAsync(T request, CancellationToken cancellationToken);
     }
 
     public abstract class CommandHandler<T, TResponse> : IRequestHandler<T, Result<TResponse>>
@@ -30,8 +29,7 @@ namespace Seedwork.CQRS.Core
         {
             try
             {
-                var response = await HandleAsync(request, cancellationToken);
-                return Result<TResponse>.Success(response);
+                return await HandleAsync(request, cancellationToken);
             }
             catch (DomainException ex)
             {
@@ -39,6 +37,6 @@ namespace Seedwork.CQRS.Core
             }
         }
 
-        protected abstract Task<TResponse> HandleAsync(T request, CancellationToken cancellationToken);
+        protected abstract Task<Result<TResponse>> HandleAsync(T request, CancellationToken cancellationToken);
     }
 }

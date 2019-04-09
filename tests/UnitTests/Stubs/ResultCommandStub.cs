@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using ResultCore;
 using Seedwork.CQRS.Core;
 
 namespace Seedwork.CQRS.UnitTests.Stubs
@@ -15,9 +16,10 @@ namespace Seedwork.CQRS.UnitTests.Stubs
 
         public class ResultCommandStubHandler : CommandHandler<ResultCommandStub, long>
         {
-            protected override Task<long> HandleAsync(ResultCommandStub request, CancellationToken cancellationToken)
+            protected override Task<Result<long>> HandleAsync(ResultCommandStub request,
+                CancellationToken cancellationToken)
             {
-                return Task.FromResult(request.Value);
+                return Task.FromResult(Result<long>.Success(request.Value));
             }
         }
     }
