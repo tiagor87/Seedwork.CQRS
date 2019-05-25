@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MediatR" Version="6.0.0"/>
-        <PackageReference Include="ResultCore" Version="0.0.34"/>
+        <PackageReference Include="MediatR" Version="7.0.0" />
+        <PackageReference Include="ResultCore" Version="0.0.35" />
     </ItemGroup>
 
 </Project>
